@@ -1,6 +1,6 @@
 let imgsSrc = [];
 let img = '../imgs/img';
-let imgs = 12;
+let imgs = 7;
 for (let i = 0; i <= imgs; i++) {
   imgsSrc.push(img + i + '.jpg');
 }
