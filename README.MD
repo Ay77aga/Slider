@@ -1,2 +1,2 @@
 # Slider
-# Demo [Here](https://ay77aga.github.io/Slider/)
+# Demo [Here](https://elegant-sinoussi-83d8d4.netlify.app/)
