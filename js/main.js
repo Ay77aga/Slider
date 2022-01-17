@@ -13,14 +13,46 @@ window.addEventListener('load', () => {
   let slide = document.querySelector('.slider');
   let container = document.querySelector('.container');
   let counter = container.setAttribute('data-index', `${count +1}/${imgsSrc.length}`);
+  let ul = document.createElement('ul');
+
+  for (let i = 0; i <= imgs; i++) {
+    let li = document.createElement('li');
+    li.setAttribute('data-i', i);
+    li.textContent = i + 1;
+    ul.appendChild(li);
+  }
+  container.appendChild(ul);
 
 
+  let lis = Array.from(document.querySelectorAll('ul li'));
+  lis[count].classList.add('active');
 
-  prev_btn.style.display = 'none';
+  function sw() {
+    lis.forEach(function(li) {
+      li.classList.remove('active')
+      if (li.dataset.i == count) {
+        li.classList.add('active')
+      }
+      li.addEventListener('click', function(e) {
+        console.log(this.textContent);
+        lis.forEach((li) => {
+          li.classList.remove('active')
+        });
+        this.classList.add('active');
+        count = this.textContent - 1;
+        Preview.src = imgsSrc[count];
+        btns();
+      });
+    });
+  }
 
-  Preview.src = imgsSrc[0];
-  next_btn.addEventListener('click', () => {
-    count++;
+  function btns() {
+    if (count <= 0) {
+      prev_btn.style.display = 'none';
+    }
+    if (count <= imgsSrc.length - 1) {
+      next_btn.style.display = 'block';
+    }
     if (count > 0) {
       prev_btn.style.display = 'block';
     }
@@ -28,6 +60,14 @@ window.addEventListener('load', () => {
       next_btn.style.display = 'none';
     }
 
+  }
+  sw();
+  prev_btn.style.display = 'none';
+  Preview.src = imgsSrc[0];
+  next_btn.addEventListener('click', () => {
+    count++;
+    sw();
+    btns();
     // console.log(count);
     counter = container.setAttribute('data-index', `${count +1}/${imgsSrc.length}`);
     Preview.src = imgsSrc[count];
@@ -35,17 +75,11 @@ window.addEventListener('load', () => {
   });
   prev_btn.addEventListener('click', () => {
     count--;
-    if (count <= 0) {
-      prev_btn.style.display = 'none';
-    }
-    if (count <= imgsSrc.length - 1) {
-      next_btn.style.display = 'block';
-    }
-
+    sw();
+    btns();
     counter = container.setAttribute('data-index', `${count +1}/${imgsSrc.length}`);
     Preview.src = imgsSrc[count];
     slide.style.background = `url(${imgsSrc[count]})`
     console.log(count);
-
   });
 });
