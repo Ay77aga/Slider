@@ -71,7 +71,6 @@ window.addEventListener('load', () => {
     // console.log(count);
     counter = container.setAttribute('data-index', `${count +1}/${imgsSrc.length}`);
     Preview.src = imgsSrc[count];
-    slide.style.background = `url(${imgsSrc[count]})`
   });
   prev_btn.addEventListener('click', () => {
     count--;

@@ -9,6 +9,8 @@ body {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 :root {
@@ -113,11 +115,12 @@ ul li {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   cursor: pointer;
-  transition: .3s;
-  transform: scale(.8)
+  transition: .6s;
+  transform: scale(.7);
 }
 
 ul li.active {
   background: darkred;
-  transform: scale(1.2)
+  transform: scale(1.2);
+  box-shadow: 0 0 0 1px lime;
 }
