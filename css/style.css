@@ -104,12 +104,14 @@ ul {
   width: 100%;
   padding: 0 5px;
   z-index: 80;
-  white-space: nowrap;
+display: flex;
+align-items: center;
+flex-flow: row nowrap
 }
 
 
 ul li {
-  display: inline-block;
+  flex: none;
   width: 50px;
   height: 50px;
   margin: 5px;
@@ -118,6 +120,7 @@ ul li {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   cursor: pointer;
+  overflow: hidden;
   transition: .6s;
   transform: scale(.8);
 }
