@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  let imgs = 8;
+  let imgs = 22;
   let next_btn = document.querySelector('.Next');
   let prev_btn = document.querySelector('.Prev');
   let Preview = document.querySelector('.container img');
@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
   let counter = (x) => container.setAttribute('data-index', `${+x+1}/${imgs}`);
   let ul = document.createElement('ul');
 
-  for (let i = 0; i <= 7; i++) {
+  for (let i = 0; i < imgs; i++) {
     let li = document.createElement('li'),
       li_img = document.createElement('img');
       li_img.className = 'm_img';
