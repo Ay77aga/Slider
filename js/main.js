@@ -27,7 +27,8 @@ window.addEventListener('load', () => {
 
   function sw() {
     Preview.classList.remove('active');
-    lis.forEach(function(li) {
+        slide.style.background = `url(imgs/img${count}.jpg)`
+lis.forEach(function(li) {
       li.classList.remove('active')
       if (li.dataset.i == count) {
         li.classList.add('active')
@@ -80,7 +81,6 @@ window.addEventListener('load', () => {
     btns();
     counter(count);
     Preview.src = `imgs/img${count}.jpg`;
-    slide.style.background = `url(imgs/img${count}.jpg)`
     ul.scrollTo({ left: 50 * count, behavior: "smooth" })
     console.log(count);
   });
